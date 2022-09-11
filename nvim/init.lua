@@ -1,0 +1,3 @@
+require("odincat")
+
+print("hello")

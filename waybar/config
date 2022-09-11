@@ -1,0 +1,83 @@
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    //"height": 20, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+    "modules-center": ["custom/spotify"],
+    "modules-right": ["network", "pulseaudio", "cpu", "memory", "clock", "tray"],
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true
+        //"format-icons": {
+        //    "1": "",
+        //    "2": "",
+        //    "3": "",
+        //    "4": "",
+        //    "5": "",
+        //    "urgent": "",
+        //    "focused": "",
+        //    "default": ""
+        //}
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "sway/window": {
+        "maxLength": 100
+    },
+    "sway/mode": {
+        "format": "<span>{}</span>"
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}",
+        "format": "{:%d.%m.%Y  %H:%M:%S}",
+        "interval": 1
+    },
+    "cpu": {
+        "format": "CPU: {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "Mem: {}%"
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "Connected ({signalStrength}%)",
+        "format-ethernet": "Connected ✅",
+        "format-disconnected": "Disconnected 🚫"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "Vol. {volume}%",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": "Muted ({volume}%)",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/spotify": {
+        "format": "{}",
+        "max-length": 100,
+        "interval": 1,
+        "escape": true,
+        //"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        "exec": "$HOME/.config/waybar/spotify.sh 2> /dev/null"
+    }
+}
+
