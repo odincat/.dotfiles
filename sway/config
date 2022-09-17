@@ -64,7 +64,7 @@ exec autotiling
 # [Applications]
 exec albert
 exec streamdeck -n
-exec swaymsg exec copyq
+exec sh -c "sleep 10; copyq"
 
 ### <Key bindings & Shortcuts>
 ## [Shortcuts]
