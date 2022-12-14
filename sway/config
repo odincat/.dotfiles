@@ -11,7 +11,7 @@ set $up k
 set $right l
 
 # [Applications] For easy reference later on
-set $terminal alacritty 
+set $terminal alacritty -e zsh
 set $browser firefox
 set $playerctl playerctl
 set $clipboardmanager copyq toggle
@@ -30,7 +30,7 @@ set $resizing_amount 20px
 
 ### <Output>
 # [Wallpaper] (all monitors, to set different ones for each monitor replace the star with the output number
-output * bg ~/Pictures/wallpapers/wallpaper-town.jpg fill
+output * bg ~/Pictures/wallpapers/liquid.jpg fill
 
 # [Monitors]
 # for instructions view "man sway-output"
@@ -54,6 +54,12 @@ default_border pixel 2
 font pango:Roboto Medium 10 
 
 ### <Autostart>
+# [Custom]
+exec swaymsg workspace number 1
+exec swaymsg workspace number 2
+exec swaymsg workspace number 10
+exec swaymsg workspace number 1
+
 # [Services]
 exec dbus-update-activation-environment --all
 exec gnome-keyring-daemon --start --components=secrets
@@ -75,7 +81,8 @@ bindsym Shift+Print exec grim ~/Pictures/screenshots/$(date + '%s_screenshot.png
 # Show clipboard history
 bindsym $mod+c exec $clipboardmanager 
 # Open terminal
-bindsym $mod+Return exec $terminal
+bindsym $mod+Return exec $terminal -c "tmux attach || tmux"
+bindsym $mod+Return+Shift exec $terminal
 # Close / Kill focused window
 bindsym $mod+q kill
 # Open launcher

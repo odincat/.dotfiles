@@ -1,3 +1,0 @@
-require("odincat")
-
-print("hello")
